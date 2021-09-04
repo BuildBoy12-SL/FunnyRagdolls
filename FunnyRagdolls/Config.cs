@@ -26,7 +26,7 @@ namespace FunnyRagdolls
         /// Gets or sets the base multiplier which is factored into by the direction the killer is looking.
         /// </summary>
         [Description("The base multiplier which is factored into by the direction the killer is looking.")]
-        public float BaseDistanceLine { get; set; } = 1f;
+        public float BaseDistanceLine { get; set; } = 10f;
 
         /// <summary>
         /// Gets or sets all of the configs related to <see cref="DamageTypes"/> and their respective knock-back multipliers.

@@ -26,12 +26,15 @@ namespace FunnyRagdolls
         /// </summary>
         public static Plugin Instance { get; } = InstanceValue;
 
+        public EventHandlers EventHandlers { get; private set; }
+
         /// <inheritdoc />
-        public override Version RequiredExiledVersion { get; } = new Version(2, 10, 0);
+        public override Version RequiredExiledVersion { get; } = new Version(3, 0, 0);
 
         /// <inheritdoc />
         public override void OnEnabled()
         {
+            EventHandlers = new EventHandlers(Config);
             Exiled.Events.Handlers.Player.SpawningRagdoll += EventHandlers.OnSpawningRagdoll;
             base.OnEnabled();
         }
@@ -40,6 +43,7 @@ namespace FunnyRagdolls
         public override void OnDisabled()
         {
             Exiled.Events.Handlers.Player.SpawningRagdoll -= EventHandlers.OnSpawningRagdoll;
+            EventHandlers = null;
             base.OnDisabled();
         }
     }
