@@ -22,7 +22,7 @@ namespace FunnyRagdolls
         /// <inheritdoc cref="Exiled.Events.Handlers.Player.OnSpawningRagdoll(SpawningRagdollEventArgs)"/>
         public void OnSpawningRagdoll(SpawningRagdollEventArgs ev)
         {
-            Log.Debug($"{ev.Killer?.Nickname} killed {ev.PlayerNickname}, checking.");
+            Log.Debug($"{ev.Killer?.Nickname} killed {ev.PlayerNickname}, checking.", config.ShowDebug);
             float multiplier = DamageTypeParser.ParseMultiplier(ev.HitInformations.Tool);
 
             Log.Debug($"Original ragdoll velocity @ {ev.Velocity}.", config.ShowDebug);
